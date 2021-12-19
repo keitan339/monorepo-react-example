@@ -1,0 +1,51 @@
+{
+  "name": "@example/example-app",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@emotion/react": "11.7.1",
+    "@emotion/styled": "11.6.0",
+    "@example/example-lib-core": "^1.0.0",
+    "@example/example-lib-ui": "^1.0.0",
+    "@mui/material": "5.2.4",
+    "react": "17.0.2",
+    "react-dom": "17.0.2"
+  },
+  "devDependencies": {
+    "@example/browserslist-config-example": "^1.0.0",
+    "@example/eslint-config-example": "^1.0.0",
+    "@testing-library/jest-dom": "5.16.1",
+    "@testing-library/react": "12.1.2",
+    "@testing-library/user-event": "13.5.0",
+    "@types/jest": "27.0.3",
+    "@types/node": "16.11.14",
+    "@types/react": "17.0.37",
+    "@types/react-dom": "17.0.11",
+    "react-app-rewired": "2.1.8",
+    "react-scripts": "5.0.0",
+    "ts-loader": "9.2.6",
+    "tsconfig-paths-webpack-plugin": "3.5.2"
+  },
+  "scripts": {
+    "start": "cross-env BROWSER=NONE react-app-rewired start",
+    "build": "react-app-rewired build",
+    "test": "react-app-rewired test",
+    "eject": "react-scripts eject",
+    "lint": "run-s lint:*",
+    "lint:prettier": "prettier --config ../../.prettierrc.js --check src/**/*.{ts,tsx}",
+    "lint:eslint": "eslint --ext .ts --ext .tsx src/",
+    "lint:type": "tsc",
+    "fix": "run-s fix:*",
+    "fix:prettier": "npm run lint:prettier -- --write",
+    "fix:eslint": "npm run lint:eslint -- --fix"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": [
+    "extends @example/browserslist-config-example"
+  ]
+}

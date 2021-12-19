@@ -1,0 +1,12 @@
+version: '3'
+services:
+  ap:
+    container_name: test
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    volumes:
+      - ../:/project
+    ports:
+      - "3000:3000"
+    tty: true

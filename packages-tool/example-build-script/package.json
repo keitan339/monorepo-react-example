@@ -1,0 +1,33 @@
+{
+  "name": "@example/example-build-script",
+  "version": "1.0.0",
+  "description": "",
+  "bin": {
+    "example-transpile-lib": "./bin/transpile-lib.js"
+  },
+  "scripts": {
+    "build": "run-s lint:type build:*",
+    "build:clean": "rimraf dist/*",
+    "build:transpile": "babel --config-file=./config/babel/babel.config.lib.js src --extensions .ts,.tsx --out-dir dist --source-maps --copy-files --no-copy-ignored",
+    "lint": "run-s lint:*",
+    "lint:prettier": "prettier --config ../../.prettierrc.js --check src/**/*.{ts,tsx}",
+    "lint:eslint": "eslint --ext .ts --ext .tsx src/",
+    "lint:type": "tsc",
+    "fix": "run-s fix:*",
+    "fix:prettier": "npm run lint:prettier -- --write",
+    "fix:eslint": "npm run lint:eslint -- --fix"
+  },
+  "dependencies": {
+    "@babel/cli": "7.16.0",
+    "@babel/plugin-transform-react-constant-elements": "7.16.5",
+    "@babel/preset-env": "7.16.5",
+    "@babel/preset-react": "7.16.5",
+    "babel-plugin-optimize-clsx": "2.6.2",
+    "babel-plugin-react-remove-properties": "0.3.0",
+    "babel-plugin-transform-react-remove-prop-types": "0.4.24",
+    "yargs": "17.3.0"
+  },
+  "devDependencies": {
+    "@types/node": "17.0.0"
+  }
+}

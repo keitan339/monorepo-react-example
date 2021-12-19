@@ -1,0 +1,46 @@
+{
+  "name": "@example/example-lib-core",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./dist/cjs/index.js",
+  "types": "./dist/types/index.d.ts",
+  "module": "./dist/es/index.js",
+  "exports": {
+    "import": "./dist/es/index.js",
+    "require": "./dist/cjs/index.js",
+    "node": "./dist/es/index.js",
+    "default": "./dist/cjs/index.js"
+  },
+  "scripts": {
+    "build": "run-s build:*",
+    "build:clean": "rimraf dist/*",
+    "build:declaration": "tsc -p ./tsconfig.build.json",
+    "build:transpile": "example-transpile-lib",
+    "lint": "run-s lint:*",
+    "lint:prettier": "prettier --config ../../.prettierrc.js --check src/**/*.{ts,tsx}",
+    "lint:eslint": "eslint --ext .ts --ext .tsx src/",
+    "lint:type": "tsc",
+    "fix": "run-s fix:*",
+    "fix:prettier": "npm run lint:prettier -- --write",
+    "fix:eslint": "npm run lint:eslint -- --fix"
+  },
+  "peerDependencies": {
+    "react": "17.0.2"
+  },
+  "devDependencies": {
+    "@example/browserslist-config-example": "^1.0.0",
+    "@example/eslint-config-example": "^1.0.0",
+    "@example/example-build-script": "^1.0.0",
+    "@testing-library/jest-dom": "5.16.1",
+    "@testing-library/react": "12.1.2",
+    "@testing-library/user-event": "13.5.0",
+    "@types/react": "17.0.37",
+    "jest": "27.4.5"
+  },
+  "dependencies": {
+    "date-fns": "2.27.0"
+  },
+  "browserslist": [
+    "extends @example/browserslist-config-example"
+  ]
+}

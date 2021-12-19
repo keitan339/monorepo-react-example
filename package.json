@@ -1,0 +1,31 @@
+{
+  "name": "monorepo-raect-example",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "run-s build:*",
+    "build:example-build-script": "npm run build --prefix ./packages-tool/example-build-script",
+    "build:example-lib-core": "npm run build --prefix ./packages/example-lib-core",
+    "build:example-lib-ui": "npm run build --prefix ./packages/example-lib-ui",
+    "build:example-app": "npm run build --prefix ./packages/example-app",
+    "lint": "run-s lint:*",
+    "lint:example-build-script": "npm run lint --prefix ./packages-tool/example-build-script",
+    "lint:example-lib-core": "npm run lint --prefix ./packages/example-lib-core",
+    "lint:example-lib-ui": "npm run lint --prefix ./packages/example-lib-ui",
+    "lint:example-app": "npm run lint --prefix ./packages/example-app"
+  },
+  "workspaces": [
+    "packages/*",
+    "packages-tool/*"
+  ],
+  "devDependencies": {
+    "cross-env": "7.0.3",
+    "lerna": "4.0.0",
+    "npm-run-all": "4.1.5",
+    "rimraf": "3.0.2",
+    "typescript": "4.5.4"
+  },
+  "engines": {
+    "node": ">=16.13.0 <17",
+    "npm": ">=8.1.0 <9"
+  }
+}
