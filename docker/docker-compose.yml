@@ -1,12 +1,15 @@
-version: '3'
+version: "3"
 services:
-  ap:
-    container_name: test
+  app:
     build:
       context: .
       dockerfile: ./Dockerfile
     volumes:
       - ../:/project
+      - node_modules_volume:/project/node_modules
     ports:
       - "3000:3000"
     tty: true
+
+volumes:
+  node_modules_volume:
